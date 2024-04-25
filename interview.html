@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="interview.css">
+</head>
+<body>
+    <form action="https://sheetdb.io/api/v1/2eoq9tad96bf3" method="post" id="sheetdb-form">
+        <label for="student">Name of the student</label><br>
+        <input type="text" id="student" name="data[student]" value="Name of the student"><br><br>
+        <label for="name">Your name</label><br>
+        <input type="text" id="name" name="data[name]" value="Enter your name"><br><br>
+        <label for="score">Score</label><br>
+        <input type="text" id="score" name="data[score]" value="Enter your score"><br><br>
+        <label for="remark">Remarks</label><br>
+        <input type="text" id="remark" name="data[remark]" value="Enter your remark"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+      <script>
+        var form = document.getElementById('sheetdb-form');
+    form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(form.action, {
+          method : "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+      }).then(
+          response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        window.open('interview2.html', '_blank');
+
+      });
+    });
+    </script>
+    
+    
+</body>
+</html>
